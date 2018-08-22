@@ -1,0 +1,34 @@
+{
+  "name": "fastify-speed",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "start": "fastify start app.js",
+    "dev": "fastify start -l info -P -w app.js",
+    "lint": "standard --fix"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "fastify": "^1.9.0",
+    "fastify-autoload": "^0.5.0",
+    "fastify-cli": "^0.19.0",
+    "fastify-helmet": "^1.0.3",
+    "fastify-plugin": "^1.2.0",
+    "fastify-response-time": "^1.0.4",
+    "ioredis": "^4.0.0",
+    "jest": "^23.5.0",
+    "jsonwebtoken": "^8.3.0"
+  },
+  "devDependencies": {
+    "standard": "^11.0.1",
+    "tap": "^12.0.0"
+  },
+  "jest": {
+    "verbose": true,
+    "roots": [
+      "__tests__"
+    ]
+  }
+}
