@@ -5,9 +5,9 @@ const AutoLoad = require("fastify-autoload");
 
 module.exports = function(fastify, opts, next) {
   // Place here your custom code!
-
-  fastify.register(require("fastify-response-time"));
   fastify.register(require("fastify-helmet"));
+  fastify.register(require("fastify-response-time"));
+  fastify.register(require("fastify-redis"));
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins

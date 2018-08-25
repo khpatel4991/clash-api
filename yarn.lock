@@ -1485,6 +1485,13 @@ fastify-plugin@^1.2.0:
   dependencies:
     semver "^5.5.0"
 
+fastify-redis@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/fastify-redis/-/fastify-redis-2.0.0.tgz#536f31f8a6617c554257608dbd06ed584aa92934"
+  dependencies:
+    fastify-plugin "^1.2.0"
+    ioredis "^4.0.0"
+
 fastify-response-time@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/fastify-response-time/-/fastify-response-time-1.0.4.tgz#11d6fdca68491f79f1021e3cde9f13e7e0178f7c"

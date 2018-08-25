@@ -16,8 +16,8 @@
     "fastify-cli": "^0.19.0",
     "fastify-helmet": "^1.0.3",
     "fastify-plugin": "^1.2.0",
+    "fastify-redis": "^2.0.0",
     "fastify-response-time": "^1.0.4",
-    "ioredis": "^4.0.0",
     "jest": "^23.5.0",
     "jsonwebtoken": "^8.3.0"
   },
@@ -28,7 +28,7 @@
   "jest": {
     "verbose": true,
     "roots": [
-      "__tests__"
+      "__tests__/services"
     ]
   }
 }
