@@ -9,20 +9,11 @@ module.exports = async function(fastify, opts, next) {
       let cardsString = await fastify.redis.get("cards");
       if (cardsString === null) {
         // Not found in cache
-        const url = "https://api.clashroyale.com/v1/cards";
-        const headers = {
-          Accept: "application/json",
-          authorization: `Bearer ${CLASH_API_KEY}`
-        };
-        const res = await axios.get(url, {
-          headers
-        });
-        cardsString = JSON.stringify(res.data.items);
-        await fastify.redis.set("cards", cardsString);
+        return { cards: false };
       }
-      return JSON.parse(cardsString);
+      return { cards: true, serverTime: new Date() };
     } catch (err) {
-      reply.code(500).send("Please contact support");
+      reply.code(500).send(`Please contact support ${err.message}`);
     }
   });
 };

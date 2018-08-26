@@ -10,7 +10,6 @@ describe("Some Support Plugin", () => {
 
   test("has property some support", async done => {
     await fastify.ready();
-    console.log(fastify.someSupport);
     expect(fastify.someSupport()).toBe("hugs");
     done();
   });

@@ -14,7 +14,13 @@ describe("GET /cards", () => {
       url: "/cards"
     });
     expect(res.statusCode).toBe(200);
-    expect(JSON.parse(res.payload).cards.length).toBeGreaterThan(0);
+    const { cards } = JSON.parse(res.payload);
+    cards.forEach(card => {
+      expect(card).toHaveProperty("id");
+      expect(card).toHaveProperty("name");
+      expect(card).toHaveProperty("maxLevel");
+      expect(card).toHaveProperty("rarity");
+    });
     done();
   });
 });
