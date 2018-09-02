@@ -2,11 +2,14 @@ const axios = require("axios");
 
 const CLASH_API_KEY = process.env.CLASH_API_KEY;
 
-const cardsUrl = () => "https://api.clashroyale.com/v1/cards";
-const getCards = async (apiKey = CLASH_API_KEY) =>
-  await axios.get(cardsUrl(), {
-    headers: { Accept: "application/json", authorization: `Bearer ${apiKey}` }
+const getCards = async (apiKey = CLASH_API_KEY) => {
+  const response = await axios.get("https://api.clashroyale.com/v1/cards", {
+    headers: { Accept: "application/json", authorization: `Bearer ${apiKey}` },
   });
+  const cards = response.data.items;
+  const enhancedCards = cardsFactory(cards);
+  return enhancedCards;
+};
 
 const getRarity = maxLevel => {
   if (maxLevel === 13) return "Common";
@@ -24,20 +27,8 @@ const cardsFactory = cards =>
 module.exports = async function(fastify, opts, next) {
   fastify.get("/cards", async function(request, reply) {
     try {
-      const cached = await fastify.redis.get("cards");
-      if (cached === null) {
-        fastify.log.info("Making Clash Royale API ...");
-        // Not found in cache
-        const response = await getCards();
-        const cards = response.data.items;
-        const enhancedCards = cardsFactory(cards);
-        const cardsString = JSON.stringify(enhancedCards);
-        await fastify.redis.set("cards", cardsString); // Cache
-        return { cards: enhancedCards };
-      } else {
-        fastify.log.info("BOOM!!! Cached Cards..");
-        return { cards: JSON.parse(cached) };
-      }
+      const cards = await getCards();
+      return { cards };
     } catch (err) {
       fastify.log.error(err.message);
       reply.code(500).send(`Please contact support: ${err.message}`);

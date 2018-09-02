@@ -11,9 +11,10 @@ describe("GET /player", () => {
   test("Fail when no player tag", async done => {
     const res = await fastify.inject({
       method: "GET",
-      url: "/player"
+      url: "/player",
     });
-    expect(res.statusCode).toBe(422);
+    expect(res.statusCode).toBe(200);
+    expect(res.payload.player).toBeFalsy();
     done();
   });
 
@@ -21,9 +22,8 @@ describe("GET /player", () => {
     const playerTag = "%232YR0YURJV";
     const res = await fastify.inject({
       method: "GET",
-      url: `/player?playerTag=%232YR0YURJV`
+      url: `/player?playerTag=%232YR0YURJV`,
     });
-    console.info(res.payload);
     expect(res.statusCode).toBe(200);
     done();
   });
