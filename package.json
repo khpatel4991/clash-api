@@ -28,7 +28,7 @@
   "jest": {
     "verbose": true,
     "roots": [
-      "__tests__/services"
+      "__tests__"
     ]
   }
 }

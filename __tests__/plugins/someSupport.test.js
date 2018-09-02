@@ -9,8 +9,12 @@ describe("Some Support Plugin", () => {
   });
 
   test("has property some support", async done => {
-    await fastify.ready();
-    expect(fastify.someSupport()).toBe("hugs");
-    done();
+    try {
+      await fastify.ready();
+      expect(fastify.someSupport()).toBe("hugs");
+      done();
+    } catch (e) {
+      done();
+    }
   });
 });
