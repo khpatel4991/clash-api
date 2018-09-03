@@ -24,7 +24,6 @@ describe("GET /cards", () => {
       });
       done();
     } catch (e) {
-      console.log(e.message);
       done();
     }
   });

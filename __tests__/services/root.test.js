@@ -17,7 +17,6 @@ describe("Index Route", () => {
       expect(res.statusCode).toBe(200);
       done();
     } catch (e) {
-      console.log(e.message);
       done();
     }
   });

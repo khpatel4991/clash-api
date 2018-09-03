@@ -1,6 +1,6 @@
 const { getCards } = require("../fetchApi");
 
-module.exports = async function(fastify, opts, next) {
+module.exports = async function(fastify) {
   fastify.get("/cards", async function(request, reply) {
     try {
       const cached = await fastify.cache.get("cards");

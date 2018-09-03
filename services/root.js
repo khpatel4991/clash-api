@@ -1,9 +1,4 @@
-const jwt = require("jsonwebtoken");
-const axios = require("axios");
-
-const CLASH_API_KEY = process.env.CLASH_API_KEY;
-
-module.exports = async function(fastify, opts, next) {
+module.exports = async function(fastify) {
   fastify.get("/", async function(request, reply) {
     try {
       // Some promise if u want
