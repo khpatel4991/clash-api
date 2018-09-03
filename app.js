@@ -3,6 +3,7 @@
 const path = require("path");
 const AutoLoad = require("fastify-autoload");
 const Redis = require("ioredis");
+
 const redis = new Redis();
 const abcache = require("abstract-cache")({
   useAwait: true,
@@ -30,7 +31,8 @@ module.exports = function(fastify, opts, next) {
   // This loads all plugins defined in services
   // define your routes in one of these
   fastify.register(AutoLoad, {
-    dir: path.join(__dirname, "services")
+    dir: path.join(__dirname, "services"),
+    options: { prefix: "/api" }
   });
 
   // Make sure to call next when done

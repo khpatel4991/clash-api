@@ -7,7 +7,7 @@ module.exports = async function(fastify, opts, next) {
   fastify.get("/", async function(request, reply) {
     try {
       // Some promise if u want
-      return { cards: true, serverTime: new Date() };
+      return { serverTime: new Date().toLocaleString() };
     } catch (err) {
       reply.code(500).send(`Please contact support ${err.message}`);
     }

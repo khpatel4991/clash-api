@@ -11,8 +11,8 @@ describe("Index Route", () => {
   test("has token object", async done => {
     try {
       const res = await fastify.inject({
-        url: "/",
-        method: "GET",
+        url: "/api",
+        method: "GET"
       });
       expect(res.statusCode).toBe(200);
       done();

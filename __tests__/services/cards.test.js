@@ -12,7 +12,7 @@ describe("GET /cards", () => {
     try {
       const res = await fastify.inject({
         method: "GET",
-        url: "/cards",
+        url: "/api/cards"
       });
       expect(res.statusCode).toBe(200);
       const { cards } = JSON.parse(res.payload);
