@@ -8,7 +8,8 @@
     "test:watch": "jest --watch",
     "start": "fastify start app.js",
     "dev": "fastify start -l info -P -w app.js",
-    "lint": "standard --fix"
+    "lint": "pretty-quick --staged",
+    "precommit": "yarn lint"
   },
   "dependencies": {
     "abstract-cache": "^1.0.1",
@@ -23,12 +24,13 @@
     "fastify-redis": "^2.0.0",
     "fastify-response-time": "^1.0.4",
     "ioredis": "^4.0.0",
-    "jest": "^23.5.0",
     "jsonwebtoken": "^8.3.0"
   },
   "devDependencies": {
-    "standard": "^11.0.1",
-    "tap": "^12.0.0"
+    "jest": "^23.5.0",
+    "husky": "^0.14.3",
+    "prettier": "1.14.2",
+    "pretty-quick": "^1.6.0"
   },
   "jest": {
     "verbose": true,

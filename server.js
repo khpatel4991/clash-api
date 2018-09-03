@@ -1,4 +1,4 @@
-//This file is mainly for bechmarking.
+// This file is mainly for bechmarking.
 // Use cmd scripts from package.json to boot up the app
 
 // Require the framework and instantiate it

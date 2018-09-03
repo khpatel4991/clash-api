@@ -23,3 +23,5 @@ const cardsFactory = cards =>
     const rarity = getRarity(card.maxLevel);
     return { ...card, rarity };
   });
+
+module.exports = getCards;
