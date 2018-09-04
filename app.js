@@ -21,7 +21,7 @@ module.exports = function(fastify, opts, next) {
   fastify.register(require("fastify-caching"), { cache: abcache });
 
   fastify.register(require("fastify-cors"), {
-    origin: /http:\/\/(localhost|127\.0\.0\.1):4000/,
+    origin: /http:\/\/(localhost|127\.0\.0\.1):3000/,
     methods: ["GET"],
     allowedHeaders: ["Content-Type", "Authorization"]
   });
