@@ -19,6 +19,17 @@ module.exports = function(fastify, opts, next) {
   fastify.register(require("fastify-response-time"));
   fastify.register(require("fastify-redis"), { client: redis });
   fastify.register(require("fastify-caching"), { cache: abcache });
+
+  fastify.register(require("fastify-cors"), {
+    origin: /http:\/\/(localhost|127\.0\.0\.1):4000/,
+    methods: ["GET"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+  });
+
+  fastify.get("*", async () => {
+    return { page: "Not Found" };
+  });
+
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins

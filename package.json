@@ -1,5 +1,5 @@
 {
-  "name": "fastify-speed",
+  "name": "clash-api",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -20,6 +20,7 @@
     "fastify-autoload": "^0.5.0",
     "fastify-caching": "^3.0.0",
     "fastify-cli": "^0.19.0",
+    "fastify-cors": "^0.1.0",
     "fastify-helmet": "^1.0.3",
     "fastify-plugin": "^1.2.0",
     "fastify-redis": "^2.0.0",

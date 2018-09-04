@@ -1423,6 +1423,13 @@ fastify-cli@^0.19.0:
     resolve-from "^4.0.0"
     update-notifier "^2.4.0"
 
+fastify-cors@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/fastify-cors/-/fastify-cors-0.1.0.tgz#58b04b056eb42a3d4ef7f916f376016ca9088c7f"
+  dependencies:
+    fastify-plugin "^1.2.0"
+    vary "^1.1.2"
+
 fastify-helmet@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/fastify-helmet/-/fastify-helmet-1.0.3.tgz#b50e339623119ec9800db3fcf6e4040e3465124a"
@@ -4670,6 +4677,10 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+vary@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
 verror@1.10.0:
   version "1.10.0"
