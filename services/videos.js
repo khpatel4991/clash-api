@@ -9,7 +9,7 @@ const routeOptions = {
 };
 
 module.exports = async fastify => {
-  fastify.get("/videos/:category", routeOptions, async (req, reply) => {
+  fastify.get("/api/videos/:category", routeOptions, async (req, reply) => {
     try {
       const category = req.params.category || "";
       const videos = await getVideos(category);

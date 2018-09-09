@@ -7,30 +7,56 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "start": "fastify start app.js",
+    "start:full": "NODE_ENV=development babel-watch server.js",
     "dev": "fastify start -l info -P -w app.js",
     "lint": "eslint --fix __tests__ fetchApi plugins services",
     "precommit": "yarn format",
     "format": "pretty-quick --staged && yarn lint"
   },
   "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-stage-2": "^7.0.0",
     "abstract-cache": "^1.0.1",
     "abstract-cache-redis": "^1.0.1",
     "axios": "^0.18.0",
+    "cypress": "^3.1.0",
     "fastify": "^1.9.0",
     "fastify-autoload": "^0.5.0",
     "fastify-caching": "^3.0.0",
     "fastify-cli": "^0.19.0",
+    "fastify-compress": "^0.7.0",
     "fastify-cors": "^0.1.0",
     "fastify-helmet": "^1.0.3",
+    "fastify-massive": "^0.1.0",
     "fastify-plugin": "^1.2.0",
     "fastify-redis": "^2.0.0",
     "fastify-response-time": "^1.0.4",
+    "fastify-static": "^0.14.0",
+    "history": "^4.7.2",
     "ioredis": "^4.0.0",
-    "jsonwebtoken": "^8.3.0"
+    "jsonwebtoken": "^8.3.0",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-redux": "^5.0.7",
+    "react-universal-component": "^3.0.1",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-first-router": "^0.0.16-next",
+    "webpack-flush-chunks": "^2.0.1"
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-watch": "^2.0.7",
     "eslint": "^5.5.0",
     "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.11.1",
     "husky": "^0.14.3",
     "jest": "^23.5.0",
     "prettier": "1.14.2",
@@ -40,6 +66,26 @@
     "verbose": true,
     "roots": [
       "__tests__"
+    ]
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread"
     ]
   }
 }

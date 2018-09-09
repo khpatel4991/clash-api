@@ -2,7 +2,11 @@
 // Use cmd scripts from package.json to boot up the app
 
 // Require the framework and instantiate it
-const fastify = require("fastify")();
+const fastify = require("fastify")({
+  logger: {
+    prettyPrint: true
+  }
+});
 const fp = require("fastify-plugin");
 const app = require("./app");
 

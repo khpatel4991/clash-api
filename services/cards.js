@@ -1,14 +1,14 @@
 const { getCards } = require("../fetchApi");
 
 module.exports = async function(fastify) {
-  fastify.get("/cards", async function(request, reply) {
+  fastify.get("/api/cards", async function(request, reply) {
     try {
       const cached = await fastify.cache.get("cards");
       if (cached === null) {
         fastify.log.info("Cache Miss for cards, Fetching and setting");
         const cards = await getCards();
         fastify.log.info("GOt cards from api, setting cache");
-        await fastify.cache.set("cards", cards, 10000);
+        await fastify.cache.set("cards", cards, 12 * 60 * 60 * 1000);
         return { cards };
       }
       fastify.log.info("Cached Cards");

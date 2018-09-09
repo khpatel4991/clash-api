@@ -9,7 +9,7 @@ const routeOptions = {
 };
 
 module.exports = async fastify => {
-  fastify.get("/video/:slug", routeOptions, async (req, reply) => {
+  fastify.get("/api/video/:slug", routeOptions, async (req, reply) => {
     try {
       const slug = req.params.slug || "";
       const video = await getVideo(slug);

@@ -9,7 +9,7 @@ const routeOptions = {
 };
 
 module.exports = async function(fastify) {
-  fastify.get("/clan", routeOptions, async function(request, reply) {
+  fastify.get("/api/clan", routeOptions, async function(request, reply) {
     const clanTag = request.query.clanTag || "";
     try {
       const clan = await getClan(clanTag);

@@ -9,7 +9,7 @@ const routeOptions = {
 };
 
 module.exports = async function(fastify) {
-  fastify.get("/player", routeOptions, async function(request, reply) {
+  fastify.get("/api/player", routeOptions, async function(request, reply) {
     const playerTag = request.query.playerTag || "";
     try {
       const player = await getPlayer(playerTag);
