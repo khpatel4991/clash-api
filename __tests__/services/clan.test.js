@@ -13,8 +13,7 @@ describe("Clan Path /api/clan", () => {
       method: "GET",
       url: "/api/clan"
     });
-    expect(res.statusCode).toBe(200);
-    expect(res.payload.clan).toBeFalsy();
+    expect(res.statusCode).toBe(404);
     done();
   });
 

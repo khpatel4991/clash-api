@@ -6,8 +6,10 @@ module.exports = {
   },
   extends: ["eslint:recommended", "prettier"],
   parserOptions: {
-    ecmaVersion: 2018
+    ecmaVersion: 2018,
+    jsx: true
   },
+  plugins: ["react"],
   rules: {
     indent: ["error", 2, { SwitchCase: 1 }],
     "linebreak-style": ["error", "unix"],

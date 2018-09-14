@@ -9,10 +9,26 @@ const routeOptions = {
 };
 
 module.exports = async function(fastify) {
-  fastify.get("/player", routeOptions, async function(request, reply) {
+  fastify.get("/api/player", routeOptions, async function(request, reply) {
     const playerTag = request.query.playerTag || "";
     try {
+      // if no player tag
+      if (playerTag.length === 0) {
+        reply.code(404).send({
+          player: null
+        });
+        return;
+      }
       const player = await getPlayer(playerTag);
+      fastify.log.info(
+        `Setting Cache for player name ${player.name}. Expires in 2 Hours`
+      );
+      await fastify.cache.set(
+        `player:${player.name}`,
+        player,
+        2 * 60 * 60 * 1000
+      );
+
       return { player };
     } catch (err) {
       fastify.log.error(err.message);
