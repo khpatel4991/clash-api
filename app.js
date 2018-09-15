@@ -32,35 +32,6 @@ module.exports = function(fastify, opts, next) {
     allowedHeaders: ["Content-Type", "Authorization"]
   });
 
-  fastify.addHook("onSend", async (request, reply, payload) => {
-    try {
-      const contentType = reply.getHeader("Content-Type");
-      fastify.log.info(contentType !== "application/json");
-      if (contentType && contentType !== "application/json") {
-        return payload;
-      }
-      if (JSON.parse(payload).statusCode !== 404) {
-        return payload;
-      }
-      // eslint-disable-line import/no-unresolved
-      // app.use(serverRender({ clientStats, outputPath }))
-      fastify.log.info("URL NOT FOUND, Generating Template", request.raw.url);
-      const richTemplate = await generateTemplate(request, reply);
-      reply.code(200).type("text/html");
-      return richTemplate;
-    } catch (e) {
-      reply.code(500);
-      fastify.log.warn(`Content Type is ${reply.getHeader("Content-Type")}`);
-      fastify.log.error(
-        `Syntax Error: ${e instanceof SyntaxError}, Error for path ${
-          request.raw.url
-        }, Message: ${e.message}`
-      );
-      return JSON.stringify({ error: e.message });
-    }
-    // next(null, JSON.stringify({ hijack: true }));
-  });
-
   fastify.register(require("fastify-static"), {
     root: path.join(__dirname, "/static"),
     prefix: "/static"
