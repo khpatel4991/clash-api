@@ -33,19 +33,9 @@
     "history": "^4.7.2",
     "ioredis": "^4.0.0",
     "jsonwebtoken": "^8.3.0",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
-    "react-redux": "^5.0.7",
-    "react-universal-component": "^3.0.2",
-    "redux": "^4.0.0",
-    "redux-first-router": "^0.0.16-next",
-    "redux-first-router-link": "^1.4.2",
-    "reselect": "^3.0.1",
     "resolve-pathname": "^2.2.0",
-    "transition-group": "^0.0.2",
     "value-equal": "^0.4.0",
-    "warning": "^4.0.2",
-    "webpack-flush-chunks": "^2.0.1"
+    "warning": "^4.0.2"
   },
   "devDependencies": {
     "eslint": "^5.5.0",

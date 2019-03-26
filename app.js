@@ -23,14 +23,9 @@ module.exports = function(fastify, opts, next) {
   fastify.register(require("fastify-no-icon"));
 
   fastify.register(require("fastify-cors"), {
-    origin: /http:\/\/(localhost|127\.0\.0\.1):3000/,
+    origin: "*",
     methods: ["GET"],
     allowedHeaders: ["Content-Type", "Authorization"]
-  });
-
-  fastify.register(require("fastify-static"), {
-    root: path.join(__dirname, "/static"),
-    prefix: "/static"
   });
 
   // Do not touch the following lines
