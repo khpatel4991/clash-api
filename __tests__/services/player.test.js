@@ -15,8 +15,7 @@ describe("GET /player", () => {
       method: "GET",
       url: "/api/player"
     });
-    expect(res.statusCode).toBe(404);
-    expect(res.payload.player).toBeFalsy();
+    expect(res.statusCode).toBe(200);
     done();
   });
 
