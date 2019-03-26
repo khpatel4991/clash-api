@@ -4,11 +4,7 @@ const path = require("path");
 const AutoLoad = require("fastify-autoload");
 const Redis = require("ioredis");
 
-const generateTemplate = require("./client/generateTemplate").default;
-
-console.log(generateTemplate);
-
-const redis = new Redis();
+const redis = new Redis(process.env.REDIS_URL);
 const abcache = require("abstract-cache")({
   useAwait: true,
   driver: {

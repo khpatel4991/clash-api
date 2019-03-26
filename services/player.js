@@ -14,12 +14,12 @@ module.exports = async function(fastify) {
     try {
       // if no player tag
       if (playerTag.length === 0) {
-        reply.code(404).send({
-          player: null
-        });
-        return;
+        throw new Error("?playerTag=abcd empty");
       }
       const player = await getPlayer(playerTag);
+      if (player === null) {
+        throw new Error("No Player Found");
+      }
       fastify.log.info(
         `Setting Cache for player name ${player.name}. Expires in 2 Hours`
       );
@@ -32,7 +32,7 @@ module.exports = async function(fastify) {
       return { player };
     } catch (err) {
       fastify.log.error(err.message);
-      reply.code(500).send(`Please contact support: ${err.message}`);
+      return { player: null, error: err.message };
     }
   });
 };
