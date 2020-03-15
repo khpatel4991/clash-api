@@ -92,13 +92,9 @@ acorn-jsx@^4.1.1:
   dependencies:
     acorn "^5.0.3"
 
-acorn@^5.0.0, acorn@^5.5.3:
-  version "5.7.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.1.tgz#f095829297706a7c9776958c0afc8930a9b9d9d8"
-
-acorn@^5.0.3, acorn@^5.6.0:
-  version "5.7.2"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.2.tgz#91fa871883485d06708800318404e72bfb26dcc5"
+acorn@^5.0.0, acorn@^5.0.3, acorn@^5.5.3, acorn@^5.6.0:
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
 
 ajv-keywords@^3.0.0:
   version "3.2.0"
@@ -1483,7 +1479,7 @@ fastify-cli@^0.19.0:
 
 fastify-cookie@^2.0.1:
   version "2.0.1"
-  resolved "http://registry.npmjs.org/fastify-cookie/-/fastify-cookie-2.0.1.tgz#b1221f1bd2b489fc58d8d50f30aac65a1ccfb875"
+  resolved "https://registry.npmjs.org/fastify-cookie/-/fastify-cookie-2.0.1.tgz#b1221f1bd2b489fc58d8d50f30aac65a1ccfb875"
   dependencies:
     cookie "^0.3.1"
     fastify-plugin "^0.2.2"
@@ -2026,7 +2022,7 @@ html-encoding-sniffer@^1.0.2:
 
 http-errors@~1.6.2:
   version "1.6.3"
-  resolved "http://registry.npmjs.org/http-errors/-/http-errors-1.6.3.tgz#8b55680bb4be283a0b5bf4ea2e38580be1d9320d"
+  resolved "https://registry.npmjs.org/http-errors/-/http-errors-1.6.3.tgz#8b55680bb4be283a0b5bf4ea2e38580be1d9320d"
   dependencies:
     depd "~1.1.2"
     inherits "2.0.3"
