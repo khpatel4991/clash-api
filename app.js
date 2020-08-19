@@ -9,8 +9,8 @@ const abcache = require("abstract-cache")({
   useAwait: true,
   driver: {
     name: "abstract-cache-redis",
-    options: { client: redis }
-  }
+    options: { client: redis },
+  },
 });
 
 module.exports = function(fastify, opts, next) {
@@ -25,7 +25,7 @@ module.exports = function(fastify, opts, next) {
   fastify.register(require("fastify-cors"), {
     origin: "*",
     methods: ["GET"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+    allowedHeaders: ["Content-Type", "Authorization"],
   });
 
   // Do not touch the following lines
@@ -34,14 +34,14 @@ module.exports = function(fastify, opts, next) {
   // those should be support plugins that are reused
   // through your application
   fastify.register(AutoLoad, {
-    dir: path.join(__dirname, "plugins")
+    dir: path.join(__dirname, "plugins"),
   });
 
   // This loads all plugins defined in services
   // define your routes in one of these
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, "services"),
-    options: { prefix: "/" }
+    options: { prefix: "/" },
   });
 
   // Make sure to call next when done
