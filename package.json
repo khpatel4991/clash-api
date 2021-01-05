@@ -15,7 +15,7 @@
   "dependencies": {
     "abstract-cache": "^1.0.1",
     "abstract-cache-redis": "^1.1.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "fastify": "^3.2.1",
     "fastify-autoload": "^3.0.8",
     "fastify-caching": "^6.0.1",
